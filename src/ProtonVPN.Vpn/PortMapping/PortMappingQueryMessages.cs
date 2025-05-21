@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2023 Proton AG
+ * Copyright (c) 2025 Proton AG
  *
  * This file is part of ProtonVPN.
  *
@@ -17,16 +17,12 @@
  * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using ProtonVPN.Vpn.PortMapping.Messages.Common;
+using ProtonVPN.Vpn.PortMapping.Messages;
 
-namespace ProtonVPN.Vpn.PortMapping.Messages;
+namespace ProtonVPN.Vpn.PortMapping;
 
-public class PortMappingQueryMessage : MessageBase
+public class PortMappingQueryMessages
 {
-    public int Length => 12;
-
-    public ushort Reserved { get; set; }
-    public ushort InternalPort { get; set; }
-    public ushort ExternalPort { get; set; }
-    public uint RequestedLeaseTimeSecond { get; set; }
+    public PortMappingQueryMessage TcpQuery { get; set; }
+    public PortMappingQueryMessage UdpQuery { get; set; }
 }
