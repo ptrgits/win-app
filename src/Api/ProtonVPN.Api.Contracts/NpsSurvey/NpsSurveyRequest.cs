@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2024 Proton AG
+ * Copyright (c) 2025 Proton AG
  *
  * This file is part of ProtonVPN.
  *
@@ -17,13 +17,11 @@
  * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace ProtonVPN.Client.Logic.Announcements.Contracts.Entities;
+namespace ProtonVPN.Api.Contracts.NpsSurvey;
 
-public enum AnnouncementType
+public class NpsSurveyRequest
 {
-    Standard = 0,
-    OneTime = 1,
-    Banner = 2,
-    ProminentBanner = 3,
-    NpsSurvey = 4,
+    public required int Score { get; init; }
+
+    public string Comment { get; init; } = string.Empty;
 }

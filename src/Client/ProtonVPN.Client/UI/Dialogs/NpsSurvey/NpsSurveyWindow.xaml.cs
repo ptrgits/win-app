@@ -1,5 +1,5 @@
-﻿/*
- * Copyright (c) 2023 Proton AG
+/*
+ * Copyright (c) 2025 Proton AG
  *
  * This file is part of ProtonVPN.
  *
@@ -17,19 +17,28 @@
  * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using Windows.Foundation;
 using Microsoft.UI.Xaml;
-using ProtonVPN.Client.Contracts.Services.Activation.Bases;
+using ProtonVPN.Client.Core.Bases;
+using ProtonVPN.Client.Core.Extensions;
+using ProtonVPN.Client.Services.Activation;
 
-namespace ProtonVPN.Client.Core.Services.Activation;
+namespace ProtonVPN.Client.UI.Dialogs.NpsSurvey;
 
-public interface IMainWindowActivator : IWindowActivator
+public sealed partial class NpsSurveyWindow : IActivationStateAware
 {
-    bool IsWindowVisible { get; }
+    public NpsSurveyWindowActivator WindowActivator { get; }
 
-    bool IsWindowFocused { get; }
+    public NpsSurveyWindow()
+    {
+        WindowActivator = App.GetService<NpsSurveyWindowActivator>();
 
-    Size CurrentWindowSize { get; }
+        InitializeComponent();
 
-    Window? Window { get; }
+        WindowActivator.Initialize(this);
+    }
+
+    public void InvalidateTitleBarOpacity(WindowActivationState activationState)
+    {
+        WindowContainer.TitleBarOpacity = activationState.GetTitleBarOpacity();
+    }
 }

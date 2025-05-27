@@ -17,13 +17,8 @@
  * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace ProtonVPN.Client.Logic.Announcements.Contracts.Entities;
+using ProtonVPN.Client.Contracts.Services.Activation.Bases;
 
-public enum AnnouncementType
-{
-    Standard = 0,
-    OneTime = 1,
-    Banner = 2,
-    ProminentBanner = 3,
-    NpsSurvey = 4,
-}
+namespace ProtonVPN.Client.Core.Services.Activation;
+
+public interface INpsSurveyWindowActivator : IWindowActivator;
