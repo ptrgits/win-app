@@ -40,7 +40,7 @@
   script:
     - echo "Building native dependencies..."
     - nuget restore ProtonVPN.InstallActions.sln
-    - cmd.exe /c BuildDependencies.bat publish
+    - cmd.exe /c BuildDependencies.bat ${DEPENDENCIES}
     - echo "Downloading translations from crowdin..."
     - python ci\build-scripts\main.py add-commit-hash $env:CI_COMMIT_SHORT_SHA
     - python ci\build-scripts\main.py defaultConfig
