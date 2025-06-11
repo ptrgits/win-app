@@ -455,6 +455,22 @@ i18n-commit-translations-redesign_2024:
   before_script:
     - git config --global core.autocrlf false
 
+i18n-sync-crowdin-installer:
+  extends: .i18n-sync-crowdin-common
+  when: manual
+  variables:
+    I18N_SYNC_BRANCH: 'redesign'
+    I18N_SYNC_CROWDIN_PROJECT: 'windows-vpn-installer'
+
+i18n-commit-translations-installer:
+  extends: .i18n-commit-locales-shared
+  variables:
+    I18N_COMMIT_CROWDIN_PROJECT: 'windows-vpn-installer'
+    I18N_COMMIT_BRANCH_PUSH: redesign
+    I18N_COMMIT_BRANCH_ALLOWED: redesign
+  before_script:
+    - git config --global core.autocrlf false
+
 create-release:
   image: $HARBOR_URL/docker.io/library/python:latest
   stage: release
