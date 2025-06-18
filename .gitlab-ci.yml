@@ -46,7 +46,7 @@ include:
       stage: security
       cli-args: ""
 
-  - component: $CI_SERVER_HOST/proton/devops/cicd-components/community/test-image-asset/generate-image-assets@0.0.2
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/community/test-image-asset/generate-image-assets@0.0.3
     inputs:
       product: windows_vpn
       output_path: ./Setup
