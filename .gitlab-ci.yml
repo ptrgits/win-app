@@ -483,18 +483,6 @@ create-release:
     - apt-get update && apt-get install -y python3 python3-pip git
     - python3 ci/build-scripts/release.py
 
-send-slack-notification:
-  tags:
-    - windows-dot-net
-  only:
-    refs:
-      - develop
-      - redesign
-  stage: publish-to-slack
-  script:
-    - python -m pip install -r ci\python-libs.txt
-    - python ci\build-scripts\main.py send-slack-notification
-
 generate-release-artifacts:
   stage: generate
   image: harbor.protontech.ch/docker.io/library/alpine:3.20
