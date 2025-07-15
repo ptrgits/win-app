@@ -1,5 +1,5 @@
-/*
- * Copyright (c) 2025 Proton AG
+﻿/*
+ * Copyright (c) 2024 Proton AG
  *
  * This file is part of ProtonVPN.
  *
@@ -17,20 +17,11 @@
  * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using ProtonVPN.Client.Services.Activation;
+namespace ProtonVPN.Client.Core.Services.Enabling;
 
-namespace ProtonVPN.Client.UI.Dialogs.Tray;
-
-public sealed partial class TrayAppWindow 
+public interface IEfficiencyModeEnabler
 {
-    public TrayAppWindowActivator WindowActivator { get; }
+    bool TryEnableEfficiencyMode();
 
-    public TrayAppWindow()
-    {
-        WindowActivator = App.GetService<TrayAppWindowActivator>();
-
-        InitializeComponent();
-        
-        WindowActivator.Initialize(this);        
-    }
+    bool TryDisableEfficiencyMode();
 }
